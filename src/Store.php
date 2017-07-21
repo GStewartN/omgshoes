@@ -59,19 +59,41 @@
             }
         }
 
-        // static function find()
-        // {
-        //
-        // }
-        //
-        // function update()
-        // {
-        //
-        // }
-        //
-        // function delete()
-        // {
-        //
-        // }
+        static function find($search_id)
+        {
+            $found_store = null;
+            $returned_stores = $GLOBALS['DB']->prepare("SELECT * FROM stores WHERE id = :id;");
+            $returned_stores->bindParam(':id', $search_id, PDO::PARAM_STR);
+            $returned_stores->execute();
+            foreach($returned_stores as $store) {
+                $name = $store['name'];
+                $id = $store['id'];
+                if ($id = $search_id) {
+                    $found_store = new Store($name, $id);
+                }
+            }
+            return $found_store;
+        }
+
+        function update($new_name)
+        {
+            $executed = $GLOBALS['DB']->exec("UPDATE stores SET name = '{$new_name}' WHERE id = {$this->getId()};");
+            if ($executed) {
+                $this->setName($new_name);
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        function delete()
+        {
+            $executed = $GLOBALS['DB']->exec("DELETE FROM stores WHERE id = {$this->getId()};");
+            if ($executed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     }
 ?>

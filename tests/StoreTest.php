@@ -112,31 +112,56 @@
           $this->assertEquals([], $result);
         }
 
-        // function testFind()
-        // {
-        //   //Arrange
-        //
-        //   //Act
-        //
-        //   //Assert
-        // }
-        //
-        // function testUpdate()
-        // {
-        //   //Arrange
-        //
-        //   //Act
-        //
-        //   //Assert
-        // }
-        //
-        // function testDelete()
-        // {
-        //   //Arrange
-        //
-        //   //Act
-        //
-        //   //Assert
-        // }
+        function testFind()
+        {
+          //Arrange
+          $name = "Shoe Stop";
+          $test_store = new Store($name);
+          $test_store->save();
+
+          $name2 = "Shoe Imporium";
+          $test_store2 = new Store($name2);
+          $test_store2->save();
+
+          //Act
+          $result = Store::find($test_store2->getId());
+
+          //Assert
+          $this->assertEquals($test_store2, $result);
+        }
+
+        function testUpdate()
+        {
+          //Arrange
+          $name = "Shoe Stop";
+          $test_store = new Store($name);
+          $test_store->save();
+
+          $new_name = "Shoe Imporium";
+
+          //Act
+          $test_store->update($new_name);
+
+          //Assert
+          $this->assertEquals($new_name, $test_store->getName());
+        }
+
+        function testDelete()
+        {
+          //Arrange
+          $name = "Shoe Stop";
+          $test_store = new Store($name);
+          $test_store->save();
+
+          $name2 = "Shoe Imporium";
+          $test_store2 = new Store($name2);
+          $test_store2->save();
+
+          //Act
+          $test_store->delete();
+
+          //Assert
+          $this->assertEquals([$test_store2], Store::getAll());
+        }
     }
 ?>
