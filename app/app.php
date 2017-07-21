@@ -19,6 +19,22 @@
         return $app['twig']->render('index.html.twig');
     });
 
+    $app->get('/stores', function() use ($app) {
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
+
+    $app->post('/stores', function() use ($app) {
+        $name = $_POST['name'];
+        $new_store = new Store($name);
+        $new_store->save();
+        return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
+
+    $app->get('/delete_stores', function() use ($app) {
+        Store::deleteAll();
+        return $app['twig']->render('stores.html.twig', array('stores.html.twig' => Store::getAll()));
+    });
+
     return $app;
 
 ?>
