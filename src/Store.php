@@ -36,16 +36,29 @@
             }
         }
 
-        // static function getAll()
-        // {
-        //
-        // }
-        //
-        // static function deleteAll()
-        // {
-        //
-        // }
-        //
+        static function getAll()
+        {
+            $returned_stores = $GLOBALS['DB']->query("SELECT * FROM stores;");
+            $stores = array();
+            foreach ($returned_stores as $store) {
+                $name = $store['name'];
+                $id = $store['id'];
+                $new_store = new Store($name, $id);
+                array_push($stores, $new_store);
+            }
+            return $stores;
+        }
+
+        static function deleteAll()
+        {
+            $executed = $GLOBALS['DB']->exec("DELETE FROM stores;");
+            if ($executed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         // static function find()
         // {
         //
