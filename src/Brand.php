@@ -32,16 +32,22 @@
             $this->price = $new_price;
         }
 
-        // function getId()
-        // {
-        //
-        // }
-        //
-        // function save()
-        // {
-        //
-        // }
-        //
+        function getId()
+        {
+            return $this->id;
+        }
+
+        function save()
+        {
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}');");
+            if ($executed) {
+                $this->id = $GLOBALS['DB']->lastInsertId();
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         // static function getAll()
         // {
         //
