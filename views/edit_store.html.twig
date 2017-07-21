@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' rel='stylesheet' type='text/css'>
+    <title>Shoe Store DB</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="jumborton">
+        <h1>Store Database</h1>
+      </div>
+      <h2>Update: {{ store.getName }}</h2>
+
+      <form action="/stores/{{ store.getId }}" method="post">
+        <input name="_method" type="hidden" value="patch">
+        <input name="store_id" type="hidden" value="{{ store.getId }}">
+
+        <input placeholder="Enter New Name" type="text" name="new_name" required>
+        <button type="submit" class="btn btn-success">Edit This Store</button>
+      </form>
+      </br>
+      <a href="/">Home</a>
+    </div>
+  </body>
+</html>

@@ -40,6 +40,11 @@
         return $app['twig']->render('store.html.twig', array('store' => $store));
     });
 
+    $app->get('/stores/{id}/edit', function($id) use ($app) {
+        $store = Store::find($id);
+        return $app['twig']->render('edit_store.html.twig', array('store' => $store));
+    });
+
     return $app;
 
 ?>
