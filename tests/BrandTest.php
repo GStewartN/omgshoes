@@ -50,5 +50,36 @@
             //Assert
             $this->assertEquals($new_brand_name, $result);
         }
+
+        function testGetPrice()
+        {
+            //Arrange
+            $brand_name = "Nike";
+            $price = "$50.00";
+            $test_brand = new Brand($brand_name, $price);
+
+            //Act
+            $result = $test_brand->getPrice();
+
+            //Assert
+            $this->assertEquals($price, $result);
+        }
+
+        function testSetPrice()
+        {
+            //Arrange
+            $brand_name = "Nike";
+            $price = "$50.00";
+            $test_brand = new Brand($brand_name, $price);
+
+            $new_price = "$30.00";
+
+            //Act
+            $test_brand->setPrice($new_price);
+            $result = $test_brand->getPrice();
+
+            //Assert
+            $this->assertEquals($new_price, $result);
+        }
     }
 ?>

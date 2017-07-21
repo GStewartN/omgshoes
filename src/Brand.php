@@ -22,16 +22,16 @@
             $this->brand_name = (string) $new_brand_name;
         }
 
-        // function getPrice()
-        // {
-        //
-        // }
-        //
-        // function setPrice($new_price)
-        // {
-        //
-        // }
-        //
+        function getPrice()
+        {
+            return $this->price;
+        }
+
+        function setPrice($new_price)
+        {
+            $this->price = $new_price;
+        }
+
         // function getId()
         // {
         //
