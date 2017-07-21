@@ -5,6 +5,7 @@
     */
 
     require_once 'src/Store.php';
+    require_once 'src/Brand.php';
 
     $server = 'mysql:host=localhost:8889;dbname=omgshoes_test';
     $username = 'root';
