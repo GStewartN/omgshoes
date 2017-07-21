@@ -39,7 +39,7 @@
 
         function save()
         {
-            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name) VALUES ('{$this->getBrandName()}');");
+            $executed = $GLOBALS['DB']->exec("INSERT INTO brands (brand_name, price) VALUES ('{$this->getBrandName()}', '{$this->getPrice()}');");
             if ($executed) {
                 $this->id = $GLOBALS['DB']->lastInsertId();
                 return true;
@@ -48,16 +48,30 @@
             }
         }
 
-        // static function getAll()
-        // {
-        //
-        // }
-        //
-        // static function deleteAll()
-        // {
-        //
-        // }
-        //
+        static function getAll()
+        {
+            $returned_brands = $GLOBALS['DB']->query("SELECT * FROM brands;");
+            $brands = array();
+            foreach ($returned_brands as $brand) {
+                $brand_name = $brand['brand_name'];
+                $price = $brand['price'];
+                $id = $brand['id'];
+                $new_brand = new Brand($brand_name, $price, $id);
+                array_push($brands, $new_brand);
+            }
+            return $brands;
+        }
+
+        static function deleteAll()
+        {
+            $executed = $GLOBALS['DB']->exec("DELETE FROM brands;");
+            if ($executed) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
         // static function find()
         // {
         //
