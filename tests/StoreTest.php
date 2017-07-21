@@ -163,5 +163,6 @@
           //Assert
           $this->assertEquals([$test_store2], Store::getAll());
         }
+
     }
 ?>
