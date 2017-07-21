@@ -26,15 +26,22 @@
             $this->assertEquals($name, $result);
         }
 
-        // function testSetName()
-        // {
-        //     //Arrange
-        //
-        //     //Act
-        //
-        //     //Assert
-        // }
-        //
+        function testSetName()
+        {
+          //Arrange
+          $name = "Shoe Stop";
+          $test_store = new Store($name);
+
+          $new_name = "Shoe Imporium";
+
+          //Act
+          $test_store->setName($new_name);
+          $result = $test_store->getName();
+
+          //Assert
+          $this->assertEquals($new_name, $result);
+        }
+
         // function testGetId()
         // {
         //   //Arrange
