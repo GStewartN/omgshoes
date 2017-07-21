@@ -42,24 +42,33 @@
           $this->assertEquals($new_name, $result);
         }
 
-        // function testGetId()
-        // {
-        //   //Arrange
-        //
-        //   //Act
-        //
-        //   //Assert
-        // }
-        //
-        // function testSave()
-        // {
-        //   //Arrange
-        //
-        //   //Act
-        //
-        //   //Assert
-        // }
-        //
+        function testGetId()
+        {
+          //Arrange
+          $name = "Shoe Stop";
+          $test_store = new Store($name);
+          $test_store->save();
+
+          //Act
+          $result = $test_store->getId();
+
+          //Assert
+          $this->assertTrue(is_numeric($result));
+        }
+
+        function testSave()
+        {
+          //Arrange
+          $name = "Shoe Stop";
+          $test_store = new Store($name);
+
+          //Act
+          $executed = $test_store->save();
+
+          //Assert
+          $this->assertTrue($executed, "This store not saved.");
+        }
+
         // function testGetAll()
         // {
         //   //Arrange
