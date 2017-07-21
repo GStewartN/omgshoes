@@ -35,6 +35,11 @@
         return $app['twig']->render('stores.html.twig', array('stores.html.twig' => Store::getAll()));
     });
 
+    $app->get('/stores/{id}', function($id) use ($app) {
+        $store = Store::find($id);
+        return $app['twig']->render('store.html.twig', array('store' => $store));
+    });
+
     return $app;
 
 ?>
