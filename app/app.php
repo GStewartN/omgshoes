@@ -45,6 +45,13 @@
         return $app['twig']->render('edit_store.html.twig', array('store' => $store));
     });
 
+    $app->patch('/stores/{id}', function($id) use ($app) {
+        $name = $_POST['new_name'];
+        $store = Store::find($id);
+        $store->update($name);
+        return $app['twig']->render('store.html.twig', array('store' => $store));
+    });
+
     return $app;
 
 ?>
