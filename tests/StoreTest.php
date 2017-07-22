@@ -80,11 +80,11 @@
         function testGetAll()
         {
             //Arrange
-            $name = "Shoe Stop";
+            $name = "Foot Love";
             $test_store = new Store($name);
             $test_store->save();
 
-            $name2 = "Shoe Imporium";
+            $name2 = "Footwear Palace";
             $test_store2 = new Store($name2);
             $test_store2->save();
 
