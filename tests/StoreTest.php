@@ -178,7 +178,7 @@
             $test_store2->save();
 
             $brand_name = "Nike";
-            $price = "$50.00";
+            $price = 50;
             $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
 
@@ -197,12 +197,12 @@
             $test_store->save();
 
             $brand_name = "Nike";
-            $price = "$50.00";
+            $price = 50;
             $test_brand = new Brand($brand_name, $price);
             $test_brand->save();
 
             $brand_name2 = "Adidas";
-            $price2 = "$30.00";
+            $price2 = 30;
             $test_brand2 = new Brand($brand_name2, $price2);
             $test_brand2->save();
 
