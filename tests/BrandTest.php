@@ -4,8 +4,8 @@
     * @backupStaticAttributes disabled
     */
 
-    require_once 'src/Brand.php';
     require_once 'src/Store.php';
+    require_once 'src/Brand.php';
 
     $server = 'mysql:host=localhost:8889;dbname=omgshoes_test';
     $username = 'root';
@@ -17,8 +17,8 @@
 
         protected function tearDown()
         {
-            Brand::deleteAll();
             Store::deleteAll();
+            Brand::deleteAll();
         }
 
         function testGetBrandName()
@@ -100,7 +100,7 @@
 
         function testSave()
         {
-            //Arrange
+          //Arrange
             $brand_name = "Nike";
             $price = "$50.00";
             $test_brand = new Brand($brand_name, $price);
@@ -109,7 +109,7 @@
             $executed = $test_brand->save();
 
             //Assert
-            $this->assertTrue($executed, "This brand not saved.");
+            $this->assertTrue($executed, "This brand is not saved.");
         }
 
         function testGetAll()
