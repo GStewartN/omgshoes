@@ -19,7 +19,7 @@
 
         function setBrandName($new_brand_name)
         {
-            $this->brand_name = (string) $new_brand_name;
+            $this->brand_name = (string) ucwords($new_brand_name);
         }
 
         function getPrice()

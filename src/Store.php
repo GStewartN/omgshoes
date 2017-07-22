@@ -17,7 +17,7 @@
 
         function setName($new_name)
         {
-            $this->name = (string) $new_name;
+            $this->name = (string) ucwords($new_name);
         }
 
         function getId()
