@@ -50,7 +50,7 @@
         $name = $_POST['new_name'];
         $store = Store::find($id);
         $store->update($name);
-        return $app['twig']->render('store.html.twig', array('store' => $store));
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => $store->getBrands(), 'all_brands' => Brand::getAll()));
     });
 
     $app->delete('/stores/{id}', function($id) use($app) {
