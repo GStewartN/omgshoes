@@ -9,13 +9,11 @@
       <div class="jumborton">
         <h1>Store Database</h1>
       </div>
-
       <form action="/stores" method="post">
         <h3>Add a Store to Store Database</h3>
         <input type="text" name="name" placeholder="Enter Name" required>
         <button type="submit" class="btn btn-success">Add Store</button>
       </form>
-
       {% if stores is not empty %}
         <h4>Store List:</h4>
         <p>Click name to edit, delete, or view brands available at a store.</p>
@@ -24,16 +22,14 @@
             <li> <a href="/stores/{{ store.getId }}"> {{ store.getName }}</a></li>
           </ul>
         {% endfor %}
-
         <form action="/delete_stores">
           <button type="submit" class="btn btn-danger">Delete All Stores</button>
         </form>
-        {% else %}
-          <h3>Your database has no stores.</h3>
-        {% endif %}
+      {% else %}
+        <h3>Your database has no stores.</h3>
+      {% endif %}
       </br>
       <a href="/">Home</a>
-
     </div>
   </body>
 </html>

@@ -82,7 +82,5 @@
         Brand::deleteAll();
         return $app['twig']->render('brands.html.twig', array('brands.html.twig' => Brand::getAll()));
     });
-
     return $app;
-
 ?>
