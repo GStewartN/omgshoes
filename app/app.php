@@ -63,6 +63,19 @@
         return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
+    $app->post('/brands', function() use ($app) {
+        $brand_name = $_POST['brand_name'];
+        $price = $_POST['price'];
+        $new_brand = new Brand($brand_name, $price);
+        $new_brand->save();
+        return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
+    });
+
+    $app->get('/delete_brands', function() use ($app) {
+        Brand::deleteAll();
+        return $app['twig']->render('brands.html.twig', array('brands.html.twig' => Brand::getAll()));
+    });
+
     return $app;
 
 ?>

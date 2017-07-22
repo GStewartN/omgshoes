@@ -12,18 +12,21 @@
 
       <form action="/brands" method="post">
         <h3>Add a Brand to Store Database</h3>
-        <input type="text" name="name" placeholder="Enter Name" required>
+        <input type="text" name="brand_name" placeholder="Enter Brand Name" required>
+        <input type="text" name="price" placeholder="Enter Price" required>
         <button type="submit" class="btn btn-success">Add Brand</button>
       </form>
 
       {% if brands is not empty %}
         <h4>Brand List:</h4>
-        {% for brand in brands %}
-          <ul>
-            <li>{{ brand.getBrandName }}</li>
-          </ul>
-        {% endfor %}
-
+        <ul>
+          {% for brand in brands %}
+          <li>{{ brand.getBrandName }}</li>
+            <ul>
+              <li>{{ brand.getPrice }}</li>
+            </ul>
+          {% endfor %}
+      </ul>
         <form action="/delete_brands">
           <button type="submit" class="btn btn-danger">Delete All Brands</button>
         </form>
