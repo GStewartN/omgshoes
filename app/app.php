@@ -2,6 +2,7 @@
     date_default_timezone_set('America/Los_Angeles');
     require_once __DIR__.'/../vendor/autoload.php';
     require_once __DIR__.'/../src/Store.php';
+    require_once __DIR__.'/../src/Brand.php';
 
     $server = 'mysql:host=localhost:8889;dbname=omgshoes';
     $username = 'root';
@@ -56,6 +57,10 @@
         $store = Store::find($id);
         $store->delete();
         return $app['twig']->render('stores.html.twig', array('stores' => Store::getAll()));
+    });
+
+    $app->get('/brands', function() use ($app) {
+        return $app['twig']->render('brands.html.twig', array('brands' => Brand::getAll()));
     });
 
     return $app;
