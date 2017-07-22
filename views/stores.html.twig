@@ -18,7 +18,7 @@
 
       {% if stores is not empty %}
         <h4>Store List:</h4>
-        <p>Click name to edit or delete a store.</p>
+        <p>Click name to edit, delete, or view brands available at a store.</p>
         {% for store in stores %}
           <ul>
             <li> <a href="/stores/{{ store.getId }}"> {{ store.getName }}</a></li>

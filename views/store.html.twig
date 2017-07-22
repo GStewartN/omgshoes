@@ -6,20 +6,48 @@
   </head>
   <body>
     <div class="container">
-      <div class="jumborton">
+      <div class="jumbotron">
         <h1>Store Database</h1>
       </div>
       <h2>{{ store.getName }}</h2>
 
+      {% if brands is not empty %}
+        <h4>Brand List:</h4>
+        <ul>
+          {% for brand in brands %}
+          <li>{{ brand.getBrandName }}</li>
+            <ul>
+              <li>{{ brand.getPrice }}</li>
+            </ul>
+          {% endfor %}
+      {% else %}
+        <h3>This store has no shoes. /sadface</h3>
+      {% endif %}
+      </br>
+
+      <form action='/add_brands' method='post'>
+        <input id="store_id" name="store_id" type="hidden" value="{{ store.getId }}">
+        <label for="brand_id">Select a brand:</label>
+        <select id='brand_id' name='brand_id' type='text'>
+          {% for brand in all_brands %}
+            <option value="{{ brand.getId }}"> {{ brand.getBrandName }} </option>
+          {% endfor %}
+        </select>
+        <button type='submit'>Add Brand</button>
+      </form>
+
+      </br>
       <form action="/stores/{{ store.getId }}/edit">
         <button type="submit" class="btn btn-success">Edit This Store</button>
       </form>
       </br>
+
       <form action="/stores/{{ store.getId }}" method="post">
         <input type="hidden" name="_method" value="delete">
         <button type="submit" class="btn btn-danger">Delete This Store</button>
       </form>
       </br>
+
       <a href="/">Home</a>
     </div>
   </body>
