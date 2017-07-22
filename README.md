@@ -9,3 +9,5 @@ mysql commands
 * ALTER TABLE stores CHANGE name (name VARCHAR (30))
 * ALTER TABLE brands CHANGE brand_name (brand_name VARCHAR (30))
 * ALTER TABLE brands CHANGE price (price INT)
+* ALTER TABLE brands ADD UNIQUE(brand_name)
+* ALTER TABLE stores ADD UNIQUE(name)
