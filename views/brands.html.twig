@@ -23,7 +23,7 @@
           {% for brand in brands %}
           <li>{{ brand.getBrandName }}</li>
             <ul>
-              <li>{{ brand.getPrice }}</li>
+              <li>${{ brand.getPrice }}.00</li>
             </ul>
           {% endfor %}
       </ul>
