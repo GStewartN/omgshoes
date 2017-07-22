@@ -14,7 +14,7 @@
 
         function getBrandName()
         {
-            return $this->brand_name;
+            return ucwords($this->brand_name);
         }
 
         function setBrandName($new_brand_name)

@@ -12,7 +12,7 @@
 
         function getName()
         {
-            return $this->name;
+            return ucwords($this->name);
         }
 
         function setName($new_name)
