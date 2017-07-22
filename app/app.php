@@ -38,7 +38,7 @@
 
     $app->get('/stores/{id}', function($id) use ($app) {
         $store = Store::find($id);
-        return $app['twig']->render('store.html.twig', array('store' => $store));
+        return $app['twig']->render('store.html.twig', array('store' => $store, 'brands' => $store->getBrands(), 'all_brands' => Brand::getAll()));
     });
 
     $app->get('/stores/{id}/edit', function($id) use ($app) {
