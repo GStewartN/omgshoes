@@ -83,6 +83,7 @@ _The app will use PHPunit,  Silex, and Twig._
 * ALTER TABLE brands CHANGE price (price INT)
 * ALTER TABLE brands ADD UNIQUE(brand_name)
 * ALTER TABLE stores ADD UNIQUE(name)
+* CREATE DATABASE shoes / DROP DATABASE omgshoes
 
 ### License
 
