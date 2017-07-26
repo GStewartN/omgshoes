@@ -17,9 +17,10 @@
       </form>
       {% if brands is not empty %}
         <h4>Brand List:</h4>
+        <p>Click brand name to see available retailers.</p>
         <ul>
           {% for brand in brands %}
-          <li>{{ brand.getBrandName }}</li>
+          <li><a href="/brands/{{ brand.getId }}">{{ brand.getBrandName }}</a></li>
             <ul>
               <li>${{ brand.getPrice }}.00</li>
             </ul>
